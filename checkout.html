@@ -9,43 +9,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
     <link rel="icon" href="https://cdn.discordapp.com/attachments/1307407737788960819/1403865538375192707/Gemini_Generated_Image_9st3lf9st3lf9st3.png?ex=68991b2a&is=6897c9aa&hm=15f717f11355d2cd080602bb5eb50a849de6b18ab8fbcd546be70e06ea9a149f&" />
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      .checkout-wrapper {
-        min-height: 100svh;
-        display: grid;
-        align-content: start;
-        justify-items: center;
-        padding: 24px;
-        overflow-y: auto;
-      }
-      .checkout { width: min(760px, 92%); display: grid; gap: 16px; grid-template-columns: 1fr 1fr; margin: 0 auto 24px; }
-      .checkout h1 { margin: 0 0 6px; font-size: 26px; }
-      .field { display: grid; gap: 6px; }
-      label { font-weight: 700; }
-      input, select, textarea { padding: 12px 12px; border-radius: 12px; border: 1px solid var(--border); font-family: inherit; }
-      textarea { min-height: 90px; }
-      .muted { color: var(--muted); font-size: 14px; }
-      .order { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: 0 10px 30px rgba(2,6,23,.06); }
-      .order-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #e2e8f0; }
-      .grid-colspan-2 { grid-column: 1 / -1; }
-      .notice { background: #ecfeff; border: 1px solid #a5f3fc; color: #155e75; padding: 10px 12px; border-radius: 12px; }
-      @media (max-width: 900px) {
-        .checkout-wrapper { display: block; padding: 16px; }
-        .checkout { grid-template-columns: 1fr; width: min(760px, 96%); }
-      }
-    </style>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://cdn.discordapp.com data:; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://formsubmit.co https://discord.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
+    <meta name="referrer" content="no-referrer" />
   </head>
   <body>
     <div class="checkout-wrapper">
       <form id="checkoutForm" class="checkout" novalidate>
+        <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="order">
           <h1>ملخص الطلب</h1>
           <p class="muted">اختر الباقة وأكمل بياناتك. سيتم إرسال الطلب إلى فريقنا عبر ديسكورد وسيتم التواصل معك.</p>
           <div class="order-row"><span>الباقة</span><strong id="planLabel">—</strong></div>
           <div class="order-row"><span>السعر</span><strong id="planPrice">—</strong></div>
           <div class="order-row"><span>الرسوم</span><strong>0 ر.س</strong></div>
-          <div class="order-row" style="border-bottom:0"><span>الإجمالي</span><strong id="planTotal">—</strong></div>
-          <div class="notice" style="margin-top:12px">لن يتم خصم أي مبلغ الآن. سنراجع الطلب ونرسل لك رابط الدفع.</div>
+          <div class="order-row no-border"><span>الإجمالي</span><strong id="planTotal">—</strong></div>
+          <div class="notice mt-12">لن يتم خصم أي مبلغ الآن. سنراجع الطلب ونرسل لك رابط الدفع.</div>
         </div>
 
         <div class="order grid-colspan-2">
@@ -76,7 +54,7 @@
         </div>
       </form>
       <!-- hidden email relay form (FormSubmit) -->
-      <form id="emailRelayForm" action="https://formsubmit.co/madjidjk@gmail.com" method="POST" style="display:none">
+      <form id="emailRelayForm" action="https://formsubmit.co/madjidjk@gmail.com" method="POST" class="hidden" aria-hidden="true">
         <input type="hidden" name="fullName" />
         <input type="hidden" name="email" />
         <input type="hidden" name="phone" />
@@ -85,7 +63,7 @@
         <input type="hidden" name="plan" />
         <input type="hidden" name="price" />
         <input type="hidden" name="_subject" value="طلب اشتراك جديد — صانع المواقع" />
-        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_captcha" value="true" />
         <input type="hidden" name="_next" value="index.html?thanks=1" />
       </form>
     </div>
