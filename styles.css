@@ -50,6 +50,7 @@ img {
   top: 0;
   z-index: 40;
   background: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
   backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -416,6 +417,7 @@ img {
 .site-footer {
   border-top: 1px solid var(--border);
   background: #ffffffb3;
+  -webkit-backdrop-filter: saturate(140%) blur(6px);
   backdrop-filter: saturate(140%) blur(6px);
 }
 
