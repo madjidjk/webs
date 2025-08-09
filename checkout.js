@@ -1,8 +1,8 @@
 const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1403738992507228264/VkUBNqxI2GBlQHC26WVG2iIDY3rr7M8Ir-Q7nnUMxqANHW_efKh57iy-7RDRUwSX-BUc";
 
 const planMeta = {
-  monthly: { label: "شهري", price: 40, currency: "د.ت", billing: "/ شهر" },
-  yearly: { label: "سنوي", price: 160, currency: "د.ت", billing: "/ سنة" },
+  monthly: { label: "شهري", price: 60, currency: "د.ت", billing: "/ شهر" },
+  yearly: { label: "سنوي", price: 210, currency: "د.ت", billing: "/ سنة" },
 };
 
 function getPlanFromQuery() {
