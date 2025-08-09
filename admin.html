@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>لوحة الأدمن | Websitek</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .admin-hero { padding: 40px 0; background: #f8fafc; border-bottom: 1px solid var(--border); }
+      .admin-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+      .admin-card .icon { font-size: 24px; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; background: rgba(99,102,241,.12); margin-bottom: 10px; }
+      @media (max-width: 900px) { .admin-grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container">
+        <a href="index.html" class="brand" aria-label="العودة للصفحة الرئيسية">
+          <img src="assets/logo-mark.svg" alt="Websitek" style="width:36px;height:36px;border-radius:10px" />
+          <span class="brand-text">Websitek</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html#pricing" class="btn btn-sm btn-ghost">العودة للباقات</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="admin-hero">
+      <div class="container">
+        <h1>لوحة الأدمن</h1>
+        <p class="section-subtitle">تحكم كامل في موقعك: المستخدمون، المحتوى، المدفوعات، والتقارير.</p>
+        <div class="admin-grid">
+          <article class="card admin-card"><div class="icon">👤</div><h3>إدارة المستخدمين</h3><p>إضافة/حذف مستخدمين وصلاحيات أدوار (مسؤول، محرر، عارض).</p></article>
+          <article class="card admin-card"><div class="icon">📰</div><h3>إدارة المحتوى</h3><p>صفحات، مقالات، وسائط، ومحرّر نص بصري.</p></article>
+          <article class="card admin-card"><div class="icon">💳</div><h3>الاشتراكات والمدفوعات</h3><p>عرض حالة الاشتراكات والفواتير وإصدار فواتير PDF.</p></article>
+          <article class="card admin-card"><div class="icon">📈</div><h3>تحليلات وتقارير</h3><p>لوحات معلومات للأداء والزيارات وتحويلات النماذج.</p></article>
+          <article class="card admin-card"><div class="icon">⚙️</div><h3>الإعدادات</h3><p>النطاق، البريد، الأمان، النسخ الاحتياطي، والتكاملات.</p></article>
+          <article class="card admin-card"><div class="icon">🔔</div><h3>الإشعارات</h3><p>تنبيهات البريد والويب، وتكامل مع ديسكورد/سلاك.</p></article>
+        </div>
+        <a href="checkout.html?plan=monthly" class="btn">ابدأ الآن</a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img src="assets/logo-mark.svg" alt="Websitek" style="width:28px;height:28px;border-radius:8px" />
+          <span class="brand-text">Websitek</span>
+        </div>
+        <ul class="footer-links">
+          <li><a href="index.html#features">المميزات</a></li>
+          <li><a href="index.html#pricing">الباقات</a></li>
+          <li><a href="index.html#faq">الأسئلة</a></li>
+          <li><a href="#">الشروط والخصوصية</a></li>
+        </ul>
+        <p class="copyright">© <span id="year"></span> جميع الحقوق محفوظة.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
+
+
