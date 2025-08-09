@@ -30,6 +30,15 @@ img {
   display: block;
 }
 
+/* Utility */
+.hidden { display: none !important; }
+.mt-12 { margin-top: 12px; }
+.no-border { border-bottom: 0 !important; }
+
+/* Logo sizes (to replace inline styles) */
+.brand-logo-img { width: 36px; height: 36px; border-radius: 10px; }
+.footer-logo-img { width: 28px; height: 28px; border-radius: 8px; }
+
 .container {
   width: min(1100px, 92%);
   margin-inline: auto;
@@ -526,5 +535,26 @@ img {
   0% { transform: scale(0); opacity: 0.4; }
   100% { transform: scale(3.5); opacity: 0; }
 }
+
+/* Admin page styles (moved from inline <style> in admin.html) */
+.admin-hero { padding: 40px 0; background: #f8fafc; border-bottom: 1px solid var(--border); }
+.admin-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+.admin-card .icon { font-size: 24px; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; background: rgba(99, 102, 241, .12); margin-bottom: 10px; }
+@media (max-width: 900px) { .admin-grid { grid-template-columns: 1fr; } }
+
+/* Checkout page styles (moved from inline <style> in checkout.html) */
+.checkout-wrapper { min-height: 100svh; display: grid; align-content: start; justify-items: center; padding: 24px; overflow-y: auto; }
+.checkout { width: min(760px, 92%); display: grid; gap: 16px; grid-template-columns: 1fr 1fr; margin: 0 auto 24px; }
+.checkout h1 { margin: 0 0 6px; font-size: 26px; }
+.field { display: grid; gap: 6px; }
+label { font-weight: 700; }
+input, select, textarea { padding: 12px 12px; border-radius: 12px; border: 1px solid var(--border); font-family: inherit; }
+textarea { min-height: 90px; }
+.muted { color: var(--muted); font-size: 14px; }
+.order { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: 0 10px 30px rgba(2,6,23,.06); }
+.order-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #e2e8f0; }
+.grid-colspan-2 { grid-column: 1 / -1; }
+.notice { background: #ecfeff; border: 1px solid #a5f3fc; color: #155e75; padding: 10px 12px; border-radius: 12px; }
+@media (max-width: 900px) { .checkout-wrapper { display: block; padding: 16px; } .checkout { grid-template-columns: 1fr; width: min(760px, 96%); } }
 
 
