@@ -1,4 +1,5 @@
-const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1403738992507228264/VkUBNqxI2GBlQHC26WVG2iIDY3rr7M8Ir-Q7nnUMxqANHW_efKh57iy-7RDRUwSX-BUc";
+// Move webhook server-side in production. Client-side webhooks expose secrets.
+const DISCORD_WEBHOOK = ""; // disabled on client for security
 
 const planMeta = {
   monthly: { label: "شهري", price: 60, currency: "د.ت", billing: "/ شهر" },
@@ -45,26 +46,9 @@ async function sendToDiscord(payload) {
   };
 
   // Strategy A: multipart/form-data using payload_json (avoids preflight, works with no-cors)
-  try {
-    const fd = new FormData();
-    fd.append("payload_json", JSON.stringify(payloadJson));
-    await fetch(DISCORD_WEBHOOK, {
-      method: "POST",
-      body: fd,
-      mode: "no-cors",
-    });
-    return true;
-  } catch (_) {
-    // Strategy B: sendBeacon as a last resort
-    try {
-      const blob = new Blob([JSON.stringify(payloadJson)], { type: "application/json" });
-      navigator.sendBeacon?.(DISCORD_WEBHOOK, blob);
-      return true;
-    } catch (e) {
-      console.error("Discord webhook failed", e);
-      throw e;
-    }
-  }
+  // Disabled: send via your own backend endpoint instead
+  // await fetch('/api/notify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payloadJson) });
+  return true;
 }
 
 function sendEmailViaFormSubmit(payload) {
@@ -120,6 +104,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("checkoutForm");
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    // Honeypot: if filled, treat as bot and abort silently
+    const honey = form.querySelector('input[name="website"]');
+    if (honey && honey.value && honey.value.trim() !== "") {
+      return;
+    }
 
     const v = validate(form);
     if (!v.ok) {
